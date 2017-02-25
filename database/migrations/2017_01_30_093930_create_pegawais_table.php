@@ -17,12 +17,12 @@ class CreatePegawaisTable extends Migration
             $table->increments('id');
             $table->string('nip')->unique();
             $table->unsignedInteger('id_user')->nullable();
-            $table->foreign('id_user')->references('id')->on('users')->onDelete('Cascade')->onUpdate('Cascade');
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedInteger('id_jabatan')->nullable();
-            $table->foreign('id_jabatan')->references('id')->on('jabatans')->onDelete('Cascade')->onUpdate('Cascade');
+            $table->foreign('id_jabatan')->references('id')->on('jabatans')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedInteger('id_golongan')->nullable();
-            $table->foreign('id_golongan')->references('id')->on('golongans')->onDelete('Cascade')->onUpdate('Cascade');
-            $table->string('foto');
+            $table->foreign('id_golongan')->references('id')->on('golongans')->onDelete('cascade')->onUpdate('cascade');
+            $table->string('foto')->nullable();
             $table->timestamps();
         });
     }

@@ -16,7 +16,7 @@ class PenggajianController extends Controller
     public function index()
     {
         //
-        $penggajian = penggajian::with('tunjanganpegawai','penggajian')->get();
+        $penggajian = penggajian::with('penggajian')->get();
         return view ('penggajian.index', compact('penggajian'));
     }
 
@@ -29,8 +29,7 @@ class PenggajianController extends Controller
     {
         //
         $penggajian = penggajian::all();
-        $tunjanganpegawai = tunjangan_pegawai::all();
-        return view ('tunjanganpegawai.create', compact('tunjanganpegawai'));
+        return view ('penggajian.create', compact('penggajian'));
     }
 
     /**
@@ -66,6 +65,9 @@ class PenggajianController extends Controller
     public function edit($id)
     {
         //
+
+        $penggajian=penggajian::find($id);
+        return view('penggajian.edit',compact('penggajian'));
     }
 
     /**
@@ -78,6 +80,10 @@ class PenggajianController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $dataUpdate=Request::all();
+        $penggajian=penggajian::find($id);
+        $penggajian->update($dataUpdate);
+        return redirect('penggajian');
     }
 
     /**
@@ -89,5 +95,7 @@ class PenggajianController extends Controller
     public function destroy($id)
     {
         //
+        penggajian::find($id)->delete();
+        return redirect('penggajian');
     }
 }

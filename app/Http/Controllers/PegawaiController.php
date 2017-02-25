@@ -7,11 +7,11 @@ use App\jabatan;
 use App\pegawai;
 use App\User;
 use App\Form;
-use App\Input;
+use Input;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Http\Request;
+use Request;
 
 class PegawaiController extends Controller
 {
@@ -104,6 +104,8 @@ class PegawaiController extends Controller
     public function edit($id)
     {
         //
+        $pegawai=pegawai::find($id);
+        return view('pegawai.edit',compact('pegawai'));
     }
 
     /**
@@ -116,7 +118,22 @@ class PegawaiController extends Controller
     public function update(Request $request, $id)
     {
         //
-    }
+       $file=Input::file('foto');
+                $destinationPath = public_path().'/assets/image/pegawai';
+                $filename = str_random(6).'_'.$file->getClientOriginalName();
+                $uploadsucces=$file->move($destinationPath,$filename);
+                if (Input::hasFile('foto'))
+                {
+                $pegawai = pegawai::find ($id);
+                $pegawai->nip = $request->get('nip');
+                $pegawai->id_jabatan= $request->get('id_jabatan');
+                $pegawai->id_golongan = $request->get('id_golongan');
+                $pegawai->id_user = $user->id;
+                $pegawai->foto = $filename;
+                $pegawai->update();
+                return redirect('/pegawai');
+                }
+            }
 
     /**
      * Remove the specified resource from storage.

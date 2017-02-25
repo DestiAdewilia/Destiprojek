@@ -26,15 +26,23 @@
                 <tbody>
                     <tr> 
                         <td> {{$id++}} </td>
-                        <td> {{$data->kode_tunjangan}} </td>
+                        <td> {{$data->tunjangan_pegawai_id}} </td>
                         <td> {{$data->jabatan->nama_jabatan}} </td>
                         <td> {{$data->golongan->nama_golongan}} </td>
                         <td> {{$data->status}} </td>
                         <td> {{$data->jumlah_anak}} </td>
                         <td> {{$data->besaran_uang}} </td>
-                        <td><a href="{{route('tunjangan.edit',$data->id)}}" class="btn btn-warning">Edit</a></td>
-                        <td><a data-toggle="modal" href="#delete{{ $data->id }}" class="btn btn-danger" title="Delete" data-toggle="tooltip">Hapus</a>
-                        
+
+                         <td><a href="{{route('tunjangan.edit',$data->id)}}" class="btn btn-warning">Edit</a></td>
+
+                    </td>
+                    <td>
+                            <form method="POST" action="{{ route('tunjangan.destroy', $data->id)}}" accept-charset="UTF-8">
+                                <input name="_method" type="hidden" value="DELETE">
+                                <input name="_token" type="hidden" value="{{ csrf_token() }}">
+                                <input type="submit" class="btn btn-danger" onclick="return confirm('Anda yakin akan menghapus data ini?');" value="Delete">
+                            </form>
+                        </td>
                     </tr>
                 </tbody>
                 @endforeach

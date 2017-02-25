@@ -26,11 +26,17 @@
                         <td> {{$data->kode_jabatan}} </td>
                         <td> {{$data->nama_jabatan}}</td>
                         <td> Rp.{{$data->besaran_uang}}</td>
+
                         <td><a href="{{route('jabatan.edit',$data->id)}}" class="btn btn-warning">Edit</a></td>
-                        <td><a data-toggle="modals" href="#delete{{ $data->id }}" class="btn btn-danger" title="Delete" data-toggle="tooltip">Hapus</a>
-                        @include('modals.delet',['url'=>route('jabatan.destroy',$data->id),'model'=>$data])</td>
-          
-                    
+
+                    </td>
+                    <td>
+                            <form method="POST" action="{{ route('jabatan.destroy', $data->id)}}" accept-charset="UTF-8">
+                                <input name="_method" type="hidden" value="DELETE">
+                                <input name="_token" type="hidden" value="{{ csrf_token() }}">
+                                <input type="submit" class="btn btn-danger" onclick="return confirm('Anda yakin akan menghapus data ini?');" value="Delete">
+                            </form>
+                        </td>
                     </tr>
                 </tbody>
                 @endforeach

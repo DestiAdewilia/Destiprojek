@@ -28,7 +28,7 @@
                 <tbody>
                     <tr> 
                         <td> {{$id++}} </td>
-                        <td> {{$data->tunjangan_pegawai_id}} </td>
+                        <td> {{$data->id_tunjangan_pegawai}} </td>
                         <td> {{$data->jumalah_jam_lembur}} </td>
                         <td> {{$data->jumlah_uang_lembur}} </td>
                         <td> {{$data->gaji_pokok}} </td>
@@ -38,8 +38,9 @@
                         <td> {{$data->petugas_penerima}} </td>
                         
                         <td><a href="{{route('penggajian.edit',$data->id)}}" class="btn btn-warning">Edit</a></td>
-                        <td><a data-toggle="modal" href="#delete{{ $data->id }}" class="btn btn-danger" title="Delete" data-toggle="tooltip">Hapus</a>
-                         
+                        <td><a data-toggle="modals" href="#delete{{ $data->id }}" class="btn btn-danger" title="delete" data-toggle="tooltip">Hapus</a>
+                                   
+                    
                     </tr>
                 </tbody>
                 @endforeach

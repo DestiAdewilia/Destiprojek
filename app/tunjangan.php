@@ -8,8 +8,8 @@ class tunjangan extends Model
 {
     //
     protected $table = 'tunjangans';
-    protected $fillable = array('id','kode_tunjangan','id_jabatan','id_golongan','status','jumlah_anak','besaran_uang');
-    protected $visible = array('id','kode_tunjangan','id_jabatan','id_golongan','status','jumlah_anak','besaran_uang');
+    protected $fillable = array('id','tunjangan_pegawai_id','id_jabatan','id_golongan','status','jumlah_anak','besaran_uang');
+    protected $visible = array('id','tunjangan_pegawai_id','id_jabatan','id_golongan','status','jumlah_anak','besaran_uang');
 
     public function golongan()
     {

@@ -12,6 +12,14 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+</head>
+
+<style>
+html ,body
+{
+    background-image: url(ii.png);
+}
+</style>
 
     <!-- Scripts -->
     <script>
@@ -51,7 +59,7 @@
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                             <li><a href="{{ url('/login') }}">Login</a></li>
-                            <li><a href="{{ url('/register') }}">Register</a></li>
+                           
 
                         @else
                             <li class="dropdown">

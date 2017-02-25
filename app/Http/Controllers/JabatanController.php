@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Request;
 use App\jabatan;
 use App\pegawai;
 use App\Form;
-use Request;
-
 
 class JabatanController extends Controller
 {
@@ -29,9 +28,8 @@ class JabatanController extends Controller
      */
     public function create()
     {
-        $pegawai = pegawai::all();
         $jabatan = jabatan::all();
-        return view ('jabatan.create', compact('pegawai','jabatan'));
+        return view ('jabatan.create', compact('jabatan'));
     }
 
     /**
@@ -80,6 +78,10 @@ class JabatanController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $dataUpdate=Request::all();
+        $jabatan=jabatan::find($id);
+        $jabatan->update($dataUpdate);
+        return redirect('jabatan');
     }
 
     /**

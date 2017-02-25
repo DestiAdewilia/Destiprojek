@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-
+use Request;
 use App\kategori_lembur;
 use App\jabatan;
 use App\golongan;
-use Request;
 use Form;
 
 class KategoriController extends Controller
@@ -18,7 +17,7 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        $kategori = kategori_lembur::with('golongan','jabatan')->get();
+        $kategori = kategori_lembur::with('lembur_pegawai')->get();
         return view ('kategori.index', compact('kategori'));
     }
 
@@ -68,6 +67,8 @@ class KategoriController extends Controller
     public function edit($id)
     {
         //
+          $kategori=kategori_lembur::find($id);
+        return view('kategori.edit',compact('kategori'));
     }
 
     /**
@@ -80,6 +81,10 @@ class KategoriController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $dataUpdate=Request::all();
+        $kategori=kategori_lembur::find($id);
+        $kategori->update($dataUpdate);
+        return redirect('kategori');
     }
 
     /**
@@ -91,5 +96,7 @@ class KategoriController extends Controller
     public function destroy($id)
     {
         //
+        kategori_lembur::find($id)->delete();
+        return redirect('kategori');
     }
 }

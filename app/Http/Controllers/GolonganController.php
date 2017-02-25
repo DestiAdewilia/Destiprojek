@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Request;
 use App\golongan;
-use App\pegawai;
-use App\kategori_lembur;
-use Form;
+use validator;
+use input;
+use App\Form;
 
 class GolonganController extends Controller
 {
@@ -19,6 +19,7 @@ class GolonganController extends Controller
     {
         $golongan = golongan::all();
         return view ('golongan.index', compact('golongan'));
+
     }
 
     /**
@@ -28,7 +29,7 @@ class GolonganController extends Controller
      */
     public function create()
     {
-        
+        $golongan = golongan::all();
         return view ('golongan.create', compact('golongan'));
     }
 
@@ -77,6 +78,7 @@ class GolonganController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //
         $dataUpdate=Request::all();
         $golongan=golongan::find($id);
         $golongan->update($dataUpdate);
@@ -91,7 +93,9 @@ class GolonganController extends Controller
      */
     public function destroy($id)
     {
+        //
         golongan::find($id)->delete();
         return redirect('golongan');
     }
 }
+

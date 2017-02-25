@@ -31,10 +31,18 @@
                         <td> {{$data->User->email}} </td>
                         <td> {{$data->id_jabatan}} </td>
                         <td> {{$data->id_golongan}} </td>
-                        <td><img src="{{asset('/assets/image/pegawai/'.$data->foto.'')}}" height="100px" width="100px"></td>
-                        <td><a href="{{route('pegawai.edit',$data->id)}}" class="btn btn-warning">Edit</a></td>
-                        <td><a data-toggle="modal" href="#delete{{ $data->id }}" class="btn btn-danger" title="Delete" data-toggle="tooltip">Hapus</a>
-                        
+
+                         <td><img src="{{asset('/assets/image/pegawai/'.$data->foto.'')}}" height="100px" width="100px"></td>
+                         <td><a href="{{route('pegawai.edit',$data->id)}}" class="btn btn-warning">Edit</a></td>
+
+                    </td>
+                    <td>
+                            <form method="POST" action="{{ route('pegawai.destroy', $data->id)}}" accept-charset="UTF-8">
+                                <input name="_method" type="hidden" value="DELETE">
+                                <input name="_token" type="hidden" value="{{ csrf_token() }}">
+                                <input type="submit" class="btn btn-danger" onclick="return confirm('Anda yakin akan menghapus data ini?');" value="Delete">
+                            </form>
+                        </td>
                     </tr>
                 </tbody>
                 @endforeach

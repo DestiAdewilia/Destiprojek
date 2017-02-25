@@ -11,7 +11,7 @@
 
                     <div class="form-group">
                     <label>Kode Tunjangan</label>
-                    <input class="form-control" type="text" name="kode_tunjangan" placeholder="Masukkan Kode Golongan">
+                    <input class="form-control" type="text" name="tunjangan_pegawai_id" placeholder="Masukkan Kode tunjangan">
                 </div>
 
                     <div class="control-group">

@@ -228,7 +228,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
-        'Input' => Collective\Support\Facades\input::class,
+        'Input' => Illuminate\Support\Facades\Input::class,
         'JWTAuth' => 'Tymon\JWTAuth\Facades\JWTAuth',
 
     ],

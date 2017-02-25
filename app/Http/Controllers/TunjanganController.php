@@ -66,6 +66,8 @@ class TunjanganController extends Controller
     public function edit($id)
     {
         //
+        $tunjangan=tunjangan::find($id);
+        return view('tunjangan.edit',compact('tunjangan'));
     }
 
     /**
@@ -78,6 +80,10 @@ class TunjanganController extends Controller
     public function update(Request $request, $id)
     {
         //
+         $dataUpdate=Request::all();
+        $tunjangan=tunjangan::find($id);
+        $tunjangan->update($dataUpdate);
+        return redirect('tunjangan');
     }
 
     /**
@@ -89,5 +95,8 @@ class TunjanganController extends Controller
     public function destroy($id)
     {
         //
+
+        tunjangan::find($id)->delete();
+        return redirect('tunjangan');
     }
 }

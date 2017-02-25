@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\lembur_pegawai;
 
 class kategori_lembur extends Model
 {

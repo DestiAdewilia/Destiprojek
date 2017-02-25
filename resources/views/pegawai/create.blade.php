@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Register</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('pegawai.store') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ route('pegawai.store') }}" enctype="multipart/form-data">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -100,26 +100,24 @@
                             </div>
                         </div><br>
 
-                    <div class="form-group{{ $errors->has('nip') ? ' has-error' : '' }}">
-                            <label for="id_jabatan" class="col-md-4 control-label">Id Jabatan</label>
-
-                            <div class="col-md-6">
-                                <input id="id_jabatan" type="text" class="form-control" name="id_jabatan" value="{{ old('id_jabatan') }}" required autofocus>
-
-                                @if ($errors->has('id_jabatan'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('id_jabatan') }}</strong>
-                                    </span>
-                                @endif
+                    <div class="control-group">
+                            <label class="control-label">Id Jabatan</label>
+                            <div class="controls">
+                                <select class="form-control col-md-5 col-xs-12" name="id_jabatan">
+                                    @foreach ($jabatan as $data)
+                                    <option value="{{ $data->id }}">{{ $data->nama_jabatan }}</option>
+                                    @endforeach
+                                </select>
                             </div>
-                        </div><br>
+                        </div><br><br>
+
 
                         <div class="control-group">
                             <label class="control-label">Id Golongan</label>
                             <div class="controls">
                                 <select class="form-control col-md-5 col-xs-12" name="id_golongan">
                                     @foreach ($golongan as $data)
-                                    <option value="{{ $data->id }}">{{ $data->id_golongan }}</option>
+                                    <option value="{{ $data->id }}">{{ $data->nama_golongan }}</option>
                                     @endforeach
                                 </select>
                             </div>

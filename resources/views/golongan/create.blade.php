@@ -4,18 +4,18 @@
 	
 <div class="container">
 	<div class="panel panel-primary">
-		<div class="panel-heading">Tambah Data Golongan</div>
+		<div class="panel-heading">Tambah Data golongan</div>
 		<div class="panel-body">
 			<form method="POST" action="{{url('golongan')}}">
 			 	{{csrf_field()}}
 				<div class="form-group">
-					<label>Kode Golongan</label>
-					<input class="form-control" type="text" name="kode_golongan" placeholder="Masukkan Kode Golongan">
+					<label>Kode golongan</label>
+					<input class="form-control" type="text" name="kode_golongan" placeholder="Masukkan Kode golongan">
 				</div>
 
 				<div class="form-group">
-					<label>Nama Golongan</label>
-					<input class="form-control" type="text" name="nama_golongan" placeholder="Masukkan Nama Golongan">
+					<label>Nama golongan</label>
+					<input class="form-control" type="text" name="nama_golongan" placeholder="Masukkan Nama golongan">
 				</div>
 
 				<div class="form-group">

@@ -24,7 +24,7 @@
                         <div class="controls">
                             <select class="span11" name="id_pegawai">
                                 @foreach ($pegawai as $data)
-                                <option value="{{ $data->id }}">{{ $data->User->name }}</option>
+                                <option value="{{ $data->id }}">{{ $data->pegawai->User->name }}</option>
                                 @endforeach
                             </select>
                         </div>

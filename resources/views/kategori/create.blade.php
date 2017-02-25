@@ -11,36 +11,28 @@
 
                     <div class="form-group">
                     <label>Kode Lembur</label>
-                    <input class="form-control" type="text" name="kode_lembur" placeholder="Kode Lembur ...">
+                    <input class="form-control" type="text" name="kode_lembur" placeholder="Masukkan Kode Lembur">
                     </div>
-      
-                    <div class="control-group">
-                        <label class="control-label">Id Jabatan</label>
-                        <div class="controls">
-                            <select class="form-control" name="id_jabatan">
+                   <div class="form-group">
+					<label>Id Kode Jabatan</label>	
+					<div class="controls">
+				  <select class="form-control" name="id_jabatan">
                                 @foreach ($jabatan as $data)
                                 <option value="{{ $data->id }}">{{ $data->nama_jabatan }}</option>
                                 @endforeach
                             </select>
-                        </div>
-                    </div>
-
-                    <div class="control-group">
-                        <label class="control-label">Id Golongan</label>
-                        <div class="controls">
-                            <select class="form-control" name="id_golongan">
+                    <div class="form-group">
+					<label>Id Kode Golongan</label>	
+					<div class="controls">
+				  <select class="form-control" name="id_golongan">
                                 @foreach ($golongan as $data)
                                 <option value="{{ $data->id }}">{{ $data->nama_golongan }}</option>
                                 @endforeach
                             </select>
-                        </div>
-                    </div>
-                    
 				<div class="form-group">
 					<label>Besaran Uang</label>
 					<input class="form-control" type="text" name="besaran_uang" placeholder="Masukkan Besaran Uang">
 				</div>
-
 				<div class="form-group">
 					<input class="btn btn-success" type="submit" name="submit" value="Tambah">
 				</div>
